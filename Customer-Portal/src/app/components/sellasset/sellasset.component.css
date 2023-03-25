@@ -1,0 +1,38 @@
+.container {
+    height: 80%;
+}
+
+
+.middle {
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.status {
+    padding-top: 5%;
+}
+
+.accent {
+    transition-duration: 0.4s;
+    border: none;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.accent:hover {
+    background-color: red;
+    color: white;
+}
+
+h3.h {
+    border-radius: 8px;
+    padding: 5px;
+}
+
+table, th, td {
+    border: 0.5px solid black;
+    border-collapse: collapse;
+  }

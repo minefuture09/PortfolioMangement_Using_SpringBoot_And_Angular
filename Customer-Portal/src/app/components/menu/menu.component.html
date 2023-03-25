@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs bg-light">
+    <li class="nav-item m-2 p-2">
+        <a class="nav-link active" *ngIf="loggedIn" routerLink="/" aria-current="page" href="#">Portfolio
+            Management</a>
+    </li>
+
+    <li class="nav-item m-2 p-2 ">
+        <a class="nav-link text-dark" *ngIf="loggedIn" routerLink="/dashboard">Home</a>
+    </li>
+    <li class="nav-item m-2 p-2">
+        <a class="nav-link text-dark" *ngIf="loggedIn" routerLink="/currentprice" href="#">Live Price</a>
+    </li>
+    <li class="nav-item m-2 p-2">
+        <a class="nav-link text-dark" *ngIf="loggedIn" routerLink="/viewasset" href="#"> View Assests</a>
+    </li>
+    <li class="nav-item m-2 p-2">
+        <a class="nav-link text-dark" *ngIf="loggedIn" routerLink="/sellasset" href="#"> Sell Assests</a>
+    </li>
+    
+    <li class="nav-item m-2 p-2">
+    
+        <a class="nav-link text-danger"  *ngIf="loggedIn" (click)="logoutUser()" routerLink="/login">Logout</a>
+    </li>
+    
+</ul>

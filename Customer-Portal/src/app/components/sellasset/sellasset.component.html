@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="outset py-3 m-2 p-2">
+                <h4 class=" my-3 h">Available Stock List</h4>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+
+                        <th scope="col">Assets</th>
+                        <th scope="col">Available Units</th>
+                        <th scope="col">Current Price</th>
+                        <th scope="col">Units to be Sold</th>
+                        <th scope="col">Check To Sell</th>
+                    </tr>
+                </thead>
+                </table>
+                <app-vieweachstock *ngFor="let stock of stockDetailList1" [stock]="stock" (removeEvent)="remove($event)"
+                    (addEvent)="add($event)"></app-vieweachstock>
+            </div>
+           
+            
+            <div class="m-2 p-2">
+                <h4 class=" my-3 h">Available Mutual Fund</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Assets</th>
+                            <th scope="col">Available Units</th>
+                            <th scope="col">Current Price</th>
+                            <th scope="col">Units to be Sold</th>
+                            <th scope="col">Check To Sell</th>
+                        </tr>
+                    </thead>
+                </table>
+                <app-vieweachmutual *ngFor="let mutualFund of mutualFundl" [mutual]="mutualFund"
+                    (removeEvent)="remove($event)" (addEvent)="add($event)"></app-vieweachmutual>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="middle">
+                <h3 class="text-center h">Selected Units</h3>
+
+                <table class=" text-center table table-striped">
+                    <tr>
+                        <th>Asset Name</th>
+                        <th>Units to be Sold</th>
+                    </tr>
+                    <tr *ngFor="let asset of saleAsset">
+                        <td>{{asset.assetName}}</td>
+                        <td>{{asset.soldUnits}}</td>
+                    </tr>
+                </table>
+                <p class="text-center py-1"><button class="btn btn-danger" (click)="sellAsset()"
+                        mat-raised-button>Sell</button></p>
+                <div class="status text-center">
+
+                    <a *ngIf=" !assetSaleResponse.saleStatus ">
+                        <div *ngFor="let item of assetSaleResponse.map | keyvalue ">
+                            <span class="text-danger">You have Entered Wrong units for AssetName: <b>{{item.key}} </b>
+                                i.e Units: <b>{{item.value}}</b></span>
+                        </div>
+                    </a>
+                    <a *ngIf="assetSaleResponse.saleStatus ">
+                        <b class="text-success">Successfully Sold...</b>
+                        <br>
+
+                    </a>
+                    <b *ngIf="sell">Networth is : {{assetSaleResponse.networth}}</b>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
